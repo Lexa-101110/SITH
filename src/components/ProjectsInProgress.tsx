@@ -6,35 +6,11 @@ const ProjectsInProgress = () => {
   const projects = [
     {
       icon: <Zap className="h-8 w-8" />,
-      title: "Falcon Beta Development",
-      progress: 5,
+      title: "Nova Guided rocket",
+      progress: 45,
       description: "Advanced gyroscopic control system with four-canard steering",
-      timeline: "Q2 2024",
-      status: "Assembly Phase"
-    },
-    {
-      icon: <Cpu className="h-8 w-8" />,
-      title: "Smart Recovery System",
-      progress: 60,
-      description: "AI-powered parachute deployment with predictive altitude modeling",
-      timeline: "Q3 2024",
-      status: "Software Development"
-    },
-    {
-      icon: <Gauge className="h-8 w-8" />,
-      title: "Thrust Vectoring Engine",
-      progress: 30,
-      description: "Variable thrust direction for enhanced flight path control",
-      timeline: "Q4 2024",
-      status: "Design Phase"
-    },
-    {
-      icon: <Clock className="h-8 w-8" />,
-      title: "Multi-Stage Rocket",
-      progress: 15,
-      description: "Two-stage rocket with automated staging mechanism",
-      timeline: "Q1 2025",
-      status: "Concept Stage"
+      timeline: "mid 2025",
+      status: "test phase"
     }
   ];
 
