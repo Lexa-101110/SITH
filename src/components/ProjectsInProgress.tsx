@@ -7,7 +7,7 @@ const ProjectsInProgress = () => {
     {
       icon: <Zap className="h-8 w-8" />,
       title: "Falcon Beta Development",
-      progress: 75,
+      progress: 5,
       description: "Advanced gyroscopic control system with four-canard steering",
       timeline: "Q2 2024",
       status: "Assembly Phase"
