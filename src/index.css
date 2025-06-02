@@ -214,7 +214,7 @@
 .flying-rocket {
   width: 120px;
   height: 60px;
-  background: url('https://raw.githubusercontent.com/Lexa-101110/imaj/main/rocket.png') no-repeat center center;
+  background: url('https://github.com/Lexa-101110/imaj/blob/main/ChatGPT_Image_2_juin_2025__20_19_37-removebg-preview.png') no-repeat center center;
   background-size: contain;
   animation: rocket-flight 15s linear infinite;
   opacity: 0;
