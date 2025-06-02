@@ -262,36 +262,7 @@ const Gallery = () => {
           })}
         </div>
 
-        {/* Edit Description Modal */}
-        {editingIndex !== null && (
-          <Dialog open={true} onOpenChange={() => cancelEdit()}>
-            <DialogContent className="bg-gray-900 border-gray-700 text-white max-w-2xl">
-              <DialogHeader>
-                <DialogTitle className="text-purple-400">
-                  Edit Description: {mediaItems[editingIndex].title}
-                </DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <Textarea
-                  value={tempDescription}
-                  onChange={(e) => setTempDescription(e.target.value)}
-                  placeholder="Enter detailed description..."
-                  className="bg-gray-800 border-gray-600 text-white min-h-[200px]"
-                />
-                <div className="flex gap-2 justify-end">
-                  <Button onClick={cancelEdit} variant="outline" className="text-gray-400 border-gray-600">
-                    <X className="h-4 w-4 mr-2" />
-                    Cancel
-                  </Button>
-                  <Button onClick={saveEdit} className="bg-purple-600 hover:bg-purple-700">
-                    <Save className="h-4 w-4 mr-2" />
-                    Save
-                  </Button>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-        )}
+
 
         {/* Image Lightbox */}
         {lightboxOpen && currentImageItem && (
