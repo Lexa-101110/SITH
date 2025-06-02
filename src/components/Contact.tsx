@@ -1,3 +1,4 @@
+/** @jsxImportSource react */
 import React from 'react';
 import { Mail, Instagram, Youtube } from 'lucide-react';
 
@@ -20,7 +21,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {socialLinks.map((link, index) => (
             <a
               key={index}
@@ -40,13 +41,10 @@ const Contact = () => {
           <p className="text-gray-400 mb-6">
             For technical discussions, collaboration opportunities, or general inquiries
           </p>
-          <a
-            href="mailto:lexa101110@gmail.com"
-            className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
-          >
+          <p className="text-cyan-400 font-medium flex items-center justify-center space-x-2">
             <Mail className="h-5 w-5" />
             <span>lexa101110@gmail.com</span>
-          </a>
+          </p>
         </div>
       </div>
     </section>
