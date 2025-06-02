@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Rocket, Sun, Moon } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -16,7 +15,6 @@ const Header = ({ darkMode = true, setDarkMode }: HeaderProps) => {
     { name: 'Home', href: '/#home', to: '/' },
     { name: 'About', href: '/#about', to: '/' },
     { name: 'Rockets', href: '/#rockets', to: '/' },
-    { name: 'Blog', href: '/nova-project', to: '/nova-project' },
     { name: 'Gallery', href: '/gallery', to: '/gallery' },
     { name: 'Projects', href: '/#projects', to: '/' },
     { name: 'Docs', href: '/#docs', to: '/' },

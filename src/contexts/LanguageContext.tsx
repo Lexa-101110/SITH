@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'fr';
@@ -79,17 +78,11 @@ const translations = {
     'footer.madeWith': 'Made with',
     'footer.community': 'for the rocketry community',
     'footer.copyright': '© 2024 Nova Project. Open source designs for educational purposes.',
-    'blog.title': 'Nova Project Development',
-    'blog.subtitle': 'Follow the journey from concept to launch',
-    'blog.search': 'Search articles...',
-    'blog.readMore': 'Read More →',
-    'blog.backToHome': '← Back to Home'
   },
   fr: {
     'nav.home': 'Accueil',
     'nav.about': 'À propos',
     'nav.rockets': 'Fusées',
-    'nav.blog': 'Projet Nova',
     'nav.gallery': 'Galerie',
     'nav.projects': 'Projets',
     'nav.docs': 'Documentation',
@@ -154,11 +147,6 @@ const translations = {
     'footer.madeWith': 'Fait avec',
     'footer.community': 'pour la communauté des fusées',
     'footer.copyright': '© 2024 Projet Nova. Conceptions open source à des fins éducatives.',
-    'blog.title': 'Développement du Projet Nova',
-    'blog.subtitle': 'Suivez le voyage du concept au lancement',
-    'blog.search': 'Rechercher des articles...',
-    'blog.readMore': 'Lire Plus →',
-    'blog.backToHome': '← Retour à l\'Accueil'
   }
 };
 

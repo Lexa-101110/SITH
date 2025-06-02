@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Rocket, Heart } from 'lucide-react';
 
@@ -24,7 +23,6 @@ const Footer = () => {
                 { name: 'Home', href: '#home' },
                 { name: 'About', href: '#about' },
                 { name: 'Rockets', href: '#rockets' },
-                { name: 'Blog', href: '/nova-project' },
                 { name: 'Gallery', href: '/gallery' },
                 { name: 'Contact', href: '#contact' }
               ].map(item => (
