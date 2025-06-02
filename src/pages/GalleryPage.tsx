@@ -13,8 +13,6 @@ const GalleryPage = () => {
         <div className="fixed inset-0 z-0">
           <div className="gallery-background"></div>
           <div className="cosmic-stars absolute inset-0"></div>
-          <div className="flying-comet"></div>
-          <div className="flying-rocket"></div>
         </div>
         
         <div className="relative z-10">

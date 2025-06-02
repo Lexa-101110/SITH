@@ -157,115 +157,6 @@
   pointer-events: none;
 }
 
-/* Looping rocket animation */
-.flying-comet {
-  width: 80px;
-  height: 40px;
-  background: url('https://github.com/Lexa-101110/imaj/blob/main/ChatGPT_Image_2_juin_2025__20_19_37-removebg-preview.png') no-repeat center center;
-  background-size: contain;
-  animation: continuous-loops 20s linear infinite;
-  opacity: 0;
-  filter: brightness(1.2) drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
-  transform-origin: center center;
-  position: absolute;
-  z-index: 1;
-  transform: scaleX(-1); /* Flip the sprite horizontally */
-}
-
-.flying-comet::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -20px; /* Changed from left to right */
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(to right, #818cf8, transparent); /* Changed gradient direction */
-  opacity: 0.4;
-  transform-origin: left center; /* Changed from right to left */
-  animation: trail-follow 20s linear infinite;
-}
-
-@keyframes continuous-loops {
-  0% {
-    transform: translate(-100px, 50vh) rotate(0deg) scaleX(-1);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  15% {
-    transform: translate(20vw, 30vh) rotate(360deg) scaleX(-1);
-  }
-  30% {
-    transform: translate(40vw, 70vh) rotate(720deg) scaleX(-1);
-  }
-  45% {
-    transform: translate(60vw, 30vh) rotate(1080deg) scaleX(-1);
-  }
-  60% {
-    transform: translate(80vw, 70vh) rotate(1440deg) scaleX(-1);
-  }
-  75% {
-    transform: translate(90vw, 30vh) rotate(1800deg) scaleX(-1);
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(calc(100vw + 100px), 50vh) rotate(2160deg) scaleX(-1);
-    opacity: 0;
-  }
-}
-
-@keyframes trail-follow {
-  0% {
-    transform: rotate(0deg) scaleX(1);
-  }
-  100% {
-    transform: rotate(2160deg) scaleX(1);
-  }
-}
-
-/* Flying rocket animation */
-.flying-rocket {
-  width: 120px;
-  height: 60px;
-  background: url('https://github.com/Lexa-101110/imaj/blob/main/ChatGPT_Image_2_juin_2025__20_19_37-removebg-preview.png') no-repeat center center;
-  background-size: contain;
-  animation: rocket-flight 15s linear infinite;
-  opacity: 0;
-  filter: brightness(1.2) drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
-}
-
-.flying-rocket::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 120px;
-  height: 4px;
-  background: linear-gradient(to right, transparent, #818cf8, #3b82f6);
-  opacity: 0.6;
-}
-
-@keyframes rocket-flight {
-  0% {
-    transform: translateX(calc(100vw + 150px)) translateY(25vh) rotate(-15deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-150px) translateY(75vh) rotate(-15deg);
-    opacity: 0;
-  }
-}
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -281,10 +172,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7c3aed;
+  background: #4b5563;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a855f7;
+  background: #6b7280;
 }
