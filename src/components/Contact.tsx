@@ -1,13 +1,10 @@
-
 import React from 'react';
-import { Mail, Instagram, Youtube, Github } from 'lucide-react';
+import { Mail, Instagram, Youtube } from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { icon: <Instagram className="h-6 w-6" />, label: 'Instagram', href: '#', color: 'hover:text-pink-400' },
-    { icon: <Youtube className="h-6 w-6" />, label: 'YouTube', href: '#', color: 'hover:text-red-400' },
-    { icon: <Github className="h-6 w-6" />, label: 'GitHub', href: '#', color: 'hover:text-gray-300' },
-    { icon: <Mail className="h-6 w-6" />, label: 'Email', href: 'mailto:contact@rocketforge.dev', color: 'hover:text-blue-400' }
+    { icon: <Instagram className="h-6 w-6" />, label: 'Instagram', href: 'https://www.instagram.com/nova_rocket_/', color: 'hover:text-pink-400' },
+    { icon: <Youtube className="h-6 w-6" />, label: 'YouTube', href: 'https://www.youtube.com/@axelrancoule9809', color: 'hover:text-red-400' },
   ];
 
   return (
@@ -44,11 +41,11 @@ const Contact = () => {
             For technical discussions, collaboration opportunities, or general inquiries
           </p>
           <a
-            href="mailto:contact@rocketforge.dev"
+            href="mailto:lexa101110@gmail.com"
             className="inline-flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
           >
             <Mail className="h-5 w-5" />
-            <span>contact@rocketforge.dev</span>
+            <span>lexa101110@gmail.com</span>
           </a>
         </div>
       </div>
