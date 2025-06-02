@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Camera, Filter, ChevronLeft, ChevronRight, X, Edit, Save } from 'lucide-react';
+import { Play, Camera, Filter, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -20,9 +20,6 @@ const Gallery = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [editMode, setEditMode] = useState(false);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
-  const [tempDescription, setTempDescription] = useState('');
   
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([
     {
@@ -105,26 +102,6 @@ const Gallery = () => {
     }
   };
 
-  const startEdit = (index: number) => {
-    setEditingIndex(index);
-    setTempDescription(mediaItems[index].detailedDescription || '');
-  };
-
-  const saveEdit = () => {
-    if (editingIndex !== null) {
-      const updatedItems = [...mediaItems];
-      updatedItems[editingIndex].detailedDescription = tempDescription;
-      setMediaItems(updatedItems);
-      setEditingIndex(null);
-      setTempDescription('');
-    }
-  };
-
-  const cancelEdit = () => {
-    setEditingIndex(null);
-    setTempDescription('');
-  };
-
   const currentImageItem = lightboxOpen ? mediaItems[currentImageIndex] : null;
   const isFirstImage = currentImageItem ? imageItems.findIndex(img => img === currentImageItem) === 0 : false;
   const isLastImage = currentImageItem ? imageItems.findIndex(img => img === currentImageItem) === imageItems.length - 1 : false;
@@ -140,18 +117,6 @@ const Gallery = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Videos, photos, and documentation from design to launch
           </p>
-        </div>
-
-        {/* Admin Controls */}
-        <div className="flex justify-end mb-6">
-          <Button
-            onClick={() => setEditMode(!editMode)}
-            variant={editMode ? "destructive" : "outline"}
-            className="text-white border-purple-400 hover:bg-purple-600"
-          >
-            <Edit className="h-4 w-4 mr-2" />
-            {editMode ? 'Exit Edit Mode' : 'Edit Descriptions'}
-          </Button>
         </div>
 
         {/* Filter Buttons */}
@@ -210,19 +175,6 @@ const Gallery = () => {
                       <Camera className="h-6 w-6 text-white/80" />
                     </div>
                   )}
-
-                  {/* Edit button */}
-                  {editMode && (
-                    <div className="absolute top-4 left-4">
-                      <Button
-                        size="sm"
-                        onClick={() => startEdit(globalIndex)}
-                        className="bg-purple-600/80 hover:bg-purple-600"
-                      >
-                        <Edit className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  )}
                 </div>
                 
                 <div className="p-4">
@@ -261,8 +213,6 @@ const Gallery = () => {
             );
           })}
         </div>
-
-
 
         {/* Image Lightbox */}
         {lightboxOpen && currentImageItem && (
