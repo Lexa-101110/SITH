@@ -210,6 +210,46 @@
   }
 }
 
+/* Flying rocket animation */
+.flying-rocket {
+  width: 120px;
+  height: 60px;
+  background: url('https://raw.githubusercontent.com/Lexa-101110/imaj/main/rocket.png') no-repeat center center;
+  background-size: contain;
+  animation: rocket-flight 15s linear infinite;
+  opacity: 0;
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.flying-rocket::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #818cf8, #3b82f6);
+  opacity: 0.6;
+}
+
+@keyframes rocket-flight {
+  0% {
+    transform: translateX(calc(100vw + 150px)) translateY(25vh) rotate(-15deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-150px) translateY(75vh) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
