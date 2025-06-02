@@ -103,17 +103,35 @@
 /* Enhanced Cosmic starfield animation */
 .cosmic-stars {
   background-image: 
-    radial-gradient(2px 2px at 20px 30px, #e879f9, transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(168, 85, 247, 0.8), transparent),
-    radial-gradient(1px 1px at 90px 40px, #06b6d4, transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(14, 165, 233, 0.6), transparent),
-    radial-gradient(2px 2px at 160px 30px, #c084fc, transparent),
-    radial-gradient(1px 1px at 200px 20px, rgba(168, 85, 247, 0.9), transparent),
-    radial-gradient(2px 2px at 220px 90px, #8b5cf6, transparent),
-    radial-gradient(1px 1px at 280px 60px, rgba(20, 184, 166, 0.7), transparent);
+    radial-gradient(2px 2px at 10% 10%, #e879f9, transparent),
+    radial-gradient(1px 1px at 20% 20%, rgba(168, 85, 247, 0.8), transparent),
+    radial-gradient(2px 2px at 30% 30%, #06b6d4, transparent),
+    radial-gradient(1px 1px at 40% 40%, rgba(14, 165, 233, 0.6), transparent),
+    radial-gradient(2px 2px at 50% 50%, #c084fc, transparent),
+    radial-gradient(1px 1px at 60% 60%, rgba(168, 85, 247, 0.9), transparent),
+    radial-gradient(2px 2px at 70% 70%, #8b5cf6, transparent),
+    radial-gradient(1px 1px at 80% 80%, rgba(20, 184, 166, 0.7), transparent),
+    /* Second layer of stars with different positions */
+    radial-gradient(2px 2px at 15% 85%, #e879f9, transparent),
+    radial-gradient(1px 1px at 25% 75%, rgba(168, 85, 247, 0.8), transparent),
+    radial-gradient(2px 2px at 35% 65%, #06b6d4, transparent),
+    radial-gradient(1px 1px at 45% 55%, rgba(14, 165, 233, 0.6), transparent),
+    radial-gradient(2px 2px at 55% 45%, #c084fc, transparent),
+    radial-gradient(1px 1px at 65% 35%, rgba(168, 85, 247, 0.9), transparent),
+    radial-gradient(2px 2px at 75% 25%, #8b5cf6, transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(20, 184, 166, 0.7), transparent),
+    /* Third layer with more random positions */
+    radial-gradient(1px 1px at 5% 95%, #e879f9, transparent),
+    radial-gradient(2px 2px at 33% 88%, rgba(168, 85, 247, 0.8), transparent),
+    radial-gradient(1px 1px at 78% 44%, #06b6d4, transparent),
+    radial-gradient(2px 2px at 12% 67%, rgba(14, 165, 233, 0.6), transparent),
+    radial-gradient(1px 1px at 92% 23%, #c084fc, transparent),
+    radial-gradient(2px 2px at 44% 82%, rgba(168, 85, 247, 0.9), transparent),
+    radial-gradient(1px 1px at 67% 37%, #8b5cf6, transparent),
+    radial-gradient(2px 2px at 89% 91%, rgba(20, 184, 166, 0.7), transparent);
   background-repeat: repeat;
-  background-size: 300px 150px;
-  animation: cosmic-twinkle 30s linear infinite, cosmic-drift 45s ease-in-out infinite alternate;
+  background-size: 400px 400px;
+  animation: cosmic-twinkle 30s linear infinite;
   opacity: 0.7;
 }
 
@@ -151,49 +169,50 @@
   transform-origin: center center;
   position: absolute;
   z-index: 1;
+  transform: scaleX(-1); /* Flip the sprite horizontally */
 }
 
 .flying-comet::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: -20px;
+  right: -20px; /* Changed from left to right */
   width: 40px;
   height: 2px;
-  background: linear-gradient(to left, #818cf8, transparent);
+  background: linear-gradient(to right, #818cf8, transparent); /* Changed gradient direction */
   opacity: 0.4;
-  transform-origin: right center;
+  transform-origin: left center; /* Changed from right to left */
   animation: trail-follow 20s linear infinite;
 }
 
 @keyframes continuous-loops {
   0% {
-    transform: translate(-100px, 50vh) rotate(0deg);
+    transform: translate(-100px, 50vh) rotate(0deg) scaleX(-1);
     opacity: 0;
   }
   5% {
     opacity: 1;
   }
   15% {
-    transform: translate(20vw, 30vh) rotate(360deg);
+    transform: translate(20vw, 30vh) rotate(360deg) scaleX(-1);
   }
   30% {
-    transform: translate(40vw, 70vh) rotate(720deg);
+    transform: translate(40vw, 70vh) rotate(720deg) scaleX(-1);
   }
   45% {
-    transform: translate(60vw, 30vh) rotate(1080deg);
+    transform: translate(60vw, 30vh) rotate(1080deg) scaleX(-1);
   }
   60% {
-    transform: translate(80vw, 70vh) rotate(1440deg);
+    transform: translate(80vw, 70vh) rotate(1440deg) scaleX(-1);
   }
   75% {
-    transform: translate(90vw, 30vh) rotate(1800deg);
+    transform: translate(90vw, 30vh) rotate(1800deg) scaleX(-1);
   }
   95% {
     opacity: 1;
   }
   100% {
-    transform: translate(calc(100vw + 100px), 50vh) rotate(2160deg);
+    transform: translate(calc(100vw + 100px), 50vh) rotate(2160deg) scaleX(-1);
     opacity: 0;
   }
 }
