@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -10,11 +9,12 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 transition-colors duration-300">
       <div className="relative">
-        {/* Animated starfield background */}
+        {/* Enhanced animated background */}
         <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-blue-900 to-gray-900 opacity-90"></div>
-          <div className="stars absolute inset-0"></div>
-          <div className="flying-rocket absolute"></div>
+          <div className="gallery-background"></div>
+          <div className="cosmic-stars absolute inset-0"></div>
+          <div className="flying-comet"></div>
+          <div className="flying-rocket"></div>
         </div>
         
         <div className="relative z-10">

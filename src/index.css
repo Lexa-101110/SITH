@@ -114,111 +114,96 @@
   background-repeat: repeat;
   background-size: 300px 150px;
   animation: cosmic-twinkle 30s linear infinite, cosmic-drift 45s ease-in-out infinite alternate;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
-/* Nebula effect */
-.nebula-effect {
+/* Enhanced gallery background */
+.gallery-background {
   background: 
-    radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 60%);
-  animation: nebula-flow 60s ease-in-out infinite alternate;
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7)),
+    radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.15), transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15), transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1), transparent 80%);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
 }
 
-@keyframes cosmic-twinkle {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.5;
-  }
-  25% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.3;
-  }
-  75% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(-150px) translateX(-20px);
-    opacity: 0.5;
-  }
+.gallery-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
-@keyframes cosmic-drift {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(40px);
-  }
-}
-
-@keyframes nebula-flow {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.1) rotate(180deg);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(1) rotate(360deg);
-    opacity: 0.8;
-  }
-}
-
-/* Flying comet animation */
+/* Looping rocket animation */
 .flying-comet {
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   background: url('https://github.com/Lexa-101110/imaj/blob/main/ChatGPT_Image_2_juin_2025__20_19_37-removebg-preview.png') no-repeat center center;
   background-size: contain;
-  animation: rocket-loop 15s linear infinite;
+  animation: continuous-loops 20s linear infinite;
   opacity: 0;
-  filter: brightness(1.2) drop-shadow(0 0 10px rgba(232, 121, 249, 0.5));
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
   transform-origin: center center;
+  position: absolute;
+  z-index: 1;
 }
 
 .flying-comet::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(to left, transparent, #818cf8, #3b82f6);
-  opacity: 0.6;
+  left: -20px;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(to left, #818cf8, transparent);
+  opacity: 0.4;
+  transform-origin: right center;
+  animation: trail-follow 20s linear infinite;
 }
 
-@keyframes rocket-loop {
+@keyframes continuous-loops {
   0% {
-    transform: translateX(-150px) translateY(50vh) rotate(0deg);
+    transform: translate(-100px, 50vh) rotate(0deg);
     opacity: 0;
   }
-  10% {
+  5% {
     opacity: 1;
-    transform: translateX(20vw) translateY(60vh) rotate(15deg);
+  }
+  15% {
+    transform: translate(20vw, 30vh) rotate(360deg);
   }
   30% {
-    transform: translateX(40vw) translateY(30vh) rotate(45deg);
+    transform: translate(40vw, 70vh) rotate(720deg);
   }
-  50% {
-    transform: translateX(60vw) translateY(40vh) rotate(180deg);
+  45% {
+    transform: translate(60vw, 30vh) rotate(1080deg);
   }
-  70% {
-    transform: translateX(80vw) translateY(60vh) rotate(315deg);
+  60% {
+    transform: translate(80vw, 70vh) rotate(1440deg);
   }
-  90% {
+  75% {
+    transform: translate(90vw, 30vh) rotate(1800deg);
+  }
+  95% {
     opacity: 1;
-    transform: translateX(90vw) translateY(40vh) rotate(345deg);
   }
   100% {
-    transform: translateX(calc(100vw + 150px)) translateY(50vh) rotate(360deg);
+    transform: translate(calc(100vw + 100px), 50vh) rotate(2160deg);
     opacity: 0;
+  }
+}
+
+@keyframes trail-follow {
+  0% {
+    transform: rotate(0deg) scaleX(1);
+  }
+  100% {
+    transform: rotate(2160deg) scaleX(1);
   }
 }
 
