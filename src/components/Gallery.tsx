@@ -29,7 +29,7 @@ const Gallery = () => {
       type: 'video',
       title: 'Static test fire of NGM Engine',
       category: 'Launches',
-      thumbnail: 'https://zupimages.net/viewer.php?id=25/22/gf0p.jpeg',
+      thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
       description: 'Static test fire to prove engine pressure resistance',
       detailedDescription: 'Static test fire to prove engine pressure resistance',
       youtubeId: '-N4TVruPZM4'
