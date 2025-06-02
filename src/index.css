@@ -174,11 +174,12 @@
 .flying-comet {
   width: 100px;
   height: 50px;
-  background: url('https://raw.githubusercontent.com/DonaldKLee/donaldklee.github.io/main/static/media/comet.png') no-repeat center center;
+  background: url('https://github.com/Lexa-101110/imaj/blob/main/ChatGPT_Image_2_juin_2025__20_19_37-removebg-preview.png') no-repeat center center;
   background-size: contain;
-  animation: comet-flight 12s linear infinite;
+  animation: rocket-loop 15s linear infinite;
   opacity: 0;
   filter: brightness(1.2) drop-shadow(0 0 10px rgba(232, 121, 249, 0.5));
+  transform-origin: center center;
 }
 
 .flying-comet::after {
@@ -189,23 +190,34 @@
   transform: translateY(-50%);
   width: 100px;
   height: 3px;
-  background: linear-gradient(to left, transparent, #e879f9, #06b6d4);
+  background: linear-gradient(to left, transparent, #818cf8, #3b82f6);
   opacity: 0.6;
 }
 
-@keyframes comet-flight {
+@keyframes rocket-loop {
   0% {
-    transform: translateX(-150px) translateY(85vh) rotate(15deg);
+    transform: translateX(-150px) translateY(50vh) rotate(0deg);
     opacity: 0;
   }
   10% {
     opacity: 1;
+    transform: translateX(20vw) translateY(60vh) rotate(15deg);
+  }
+  30% {
+    transform: translateX(40vw) translateY(30vh) rotate(45deg);
+  }
+  50% {
+    transform: translateX(60vw) translateY(40vh) rotate(180deg);
+  }
+  70% {
+    transform: translateX(80vw) translateY(60vh) rotate(315deg);
   }
   90% {
     opacity: 1;
+    transform: translateX(90vw) translateY(40vh) rotate(345deg);
   }
   100% {
-    transform: translateX(calc(100vw + 150px)) translateY(15vh) rotate(15deg);
+    transform: translateX(calc(100vw + 150px)) translateY(50vh) rotate(360deg);
     opacity: 0;
   }
 }
