@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Clock, Zap, Cpu, Gauge } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ProjectsInProgress = () => {
   const projects = [
@@ -59,9 +59,9 @@ const ProjectsInProgress = () => {
                   
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-400">Target: {project.timeline}</span>
-                    <button className="text-green-400 hover:text-green-300 transition-colors">
-                      View Details →
-                    </button>
+                    <Link to="/gallery" className="text-green-400 hover:text-green-300 transition-colors">
+                      View in Gallery →
+                    </Link>
                   </div>
                 </div>
               </div>
