@@ -27,12 +27,12 @@ const Gallery = () => {
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([
     {
       type: 'video',
-      title: 'Phoenix Alpha Launch',
+      title: 'Static test fire of NGM Engine',
       category: 'Launches',
-      thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb',
-      description: 'Successful first launch reaching 1,200 feet',
-      detailedDescription: 'This historic launch marked the first successful test of our Phoenix Alpha rocket. The vehicle achieved an altitude of 1,200 feet with perfect trajectory control and safe recovery. The launch validated our engine design, flight computer systems, and recovery mechanisms.',
-      youtubeId: 'dQw4w9WgXcQ'
+      thumbnail: 'https://zupimages.net/viewer.php?id=25/22/gf0p.jpeg',
+      description: 'Static test fire to prove engine pressure resistance',
+      detailedDescription: 'Static test fire to prove engine pressure resistance',
+      youtubeId: '-N4TVruPZM4'
     },
     {
       type: 'image',
