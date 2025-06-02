@@ -5,12 +5,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
-// Import local images
-import engineTestImage from '../assets/images/engine-test.jpg';
-import engineAssemblyImage from '../assets/images/engine-assembly.jpg';
-import staticFireImage from '../assets/images/static-fire.jpg';
-import flightComputerImage from '../assets/images/flight-computer.jpg';
-
 interface MediaItem {
   type: 'video' | 'image';
   title: string;
@@ -35,7 +29,7 @@ const Gallery = () => {
       type: 'video',
       title: 'Static test fire of NGM Engine',
       category: 'Launches',
-      thumbnail: engineTestImage,
+      thumbnail: 'https://zupimages.net/viewer.php?id=25/22/gf0p.jpeg',
       description: 'Static test fire to prove engine pressure resistance',
       detailedDescription: 'Static test fire to prove engine pressure resistance',
       youtubeId: '-N4TVruPZM4'
@@ -44,7 +38,7 @@ const Gallery = () => {
       type: 'image',
       title: 'Engine Assembly',
       category: 'Manufacturing',
-      thumbnail: engineAssemblyImage,
+      thumbnail: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b',
       description: '3D printed PETG engine components',
       detailedDescription: 'Our custom-designed rocket engine components are 3D printed using high-temperature PETG material. Each component undergoes rigorous testing for structural integrity and thermal resistance. The modular design allows for easy maintenance and upgrades.'
     },
@@ -52,7 +46,7 @@ const Gallery = () => {
       type: 'video',
       title: 'Static Fire Test',
       category: 'Testing',
-      thumbnail: staticFireImage,
+      thumbnail: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc',
       description: 'Ground testing of new fuel mixture',
       detailedDescription: 'Static fire tests are crucial for validating engine performance before flight. This test series evaluated our new propellant mixture, measuring thrust curves, combustion efficiency, and thermal characteristics.',
       youtubeId: 'dQw4w9WgXcQ'
@@ -61,7 +55,7 @@ const Gallery = () => {
       type: 'image',
       title: 'Flight Computer PCB',
       category: 'Electronics',
-      thumbnail: flightComputerImage,
+      thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
       description: 'Custom Arduino-based flight computer',
       detailedDescription: 'Our flight computer features a custom PCB design with multiple sensors including accelerometers, gyroscopes, and barometric pressure sensors. The Arduino-based system provides real-time telemetry and autonomous flight control with built-in safety protocols.'
     }
