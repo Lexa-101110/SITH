@@ -13,7 +13,6 @@ const translations = {
     'nav.home': 'Home',
     'nav.about': 'About',
     'nav.rockets': 'Rockets',
-    'nav.blog': 'Nova Project',
     'nav.gallery': 'Gallery',
     'nav.projects': 'Projects',
     'nav.docs': 'Docs',
@@ -77,7 +76,7 @@ const translations = {
     'footer.resources': 'Resources',
     'footer.madeWith': 'Made with',
     'footer.community': 'for the rocketry community',
-    'footer.copyright': '© 2024 Nova Project. Open source designs for educational purposes.',
+    'footer.copyright': '© 2024 Nova Project. Open source designs for educational purposes.'
   },
   fr: {
     'nav.home': 'Accueil',
@@ -146,7 +145,7 @@ const translations = {
     'footer.resources': 'Ressources',
     'footer.madeWith': 'Fait avec',
     'footer.community': 'pour la communauté des fusées',
-    'footer.copyright': '© 2024 Projet Nova. Conceptions open source à des fins éducatives.',
+    'footer.copyright': '© 2024 Projet Nova. Conceptions open source à des fins éducatives.'
   }
 };
 
