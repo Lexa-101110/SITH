@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +6,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import TechnicalSpecs from '../components/TechnicalSpecs';
 import RocketComparison from '../components/RocketComparison';
+import RocketTimeline from '../components/RocketTimeline';
 import ProjectsInProgress from '../components/ProjectsInProgress';
 import TechnicalDocs from '../components/TechnicalDocs';
 import Contact from '../components/Contact';
@@ -52,6 +52,7 @@ const Index = () => {
           <About />
           <TechnicalSpecs />
           <RocketComparison />
+          <RocketTimeline />
           <ProjectsInProgress />
           <TechnicalDocs />
           <Contact />
