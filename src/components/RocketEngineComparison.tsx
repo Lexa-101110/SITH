@@ -1,6 +1,7 @@
 /** @jsxImportSource react */
 import React from 'react';
-import { Flame, Clock, Scale, Gauge } from 'lucide-react';
+import { Flame, Clock, Scale, Gauge, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const RocketEngineComparison = () => {
   const engines = [
@@ -16,7 +17,8 @@ const RocketEngineComparison = () => {
         status: "Flight Tested"
       },
       description: "Entry-level solid rocket motor optimized for consistent thrust curve and reliability.",
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-500 to-red-600",
+      galleryLink: "/gallery?filter=Engines&engine=Nova-K1"
     },
     {
       name: "Nova-K2",
@@ -30,7 +32,8 @@ const RocketEngineComparison = () => {
         status: "Testing Phase"
       },
       description: "Mid-power motor with enhanced thrust for higher altitude missions.",
-      color: "from-blue-500 to-purple-600"
+      color: "from-blue-500 to-purple-600",
+      galleryLink: "/gallery?filter=Engines&engine=Nova-K2"
     },
     {
       name: "Nova-X1",
@@ -44,7 +47,8 @@ const RocketEngineComparison = () => {
         status: "Development"
       },
       description: "Experimental hybrid motor design with throttling capability.",
-      color: "from-emerald-500 to-teal-600"
+      color: "from-emerald-500 to-teal-600",
+      galleryLink: "/gallery?filter=Engines&engine=Nova-X1"
     }
   ];
 
@@ -92,7 +96,7 @@ const RocketEngineComparison = () => {
                 {renderSpec("Efficiency", engine.specs.efficiency, <Gauge className="h-4 w-4" />)}
                 
                 <div className="pt-4 mt-4 border-t border-gray-700">
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mb-4">
                     <span className="text-sm text-gray-400">Status</span>
                     <span className={`text-sm px-2 py-1 rounded-full ${
                       engine.specs.status === 'Flight Tested' 
@@ -104,6 +108,14 @@ const RocketEngineComparison = () => {
                       {engine.specs.status}
                     </span>
                   </div>
+                  
+                  <Link 
+                    to={engine.galleryLink}
+                    className={`w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r ${engine.color} text-white rounded-lg hover:opacity-90 transition-opacity group`}
+                  >
+                    View in Gallery
+                    <ExternalLink className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </div>
