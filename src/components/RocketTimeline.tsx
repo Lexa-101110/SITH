@@ -1,3 +1,4 @@
+/** @jsxImportSource react */
 import React from 'react';
 
 interface LaunchEvent {
@@ -53,16 +54,6 @@ const RocketTimeline = () => {
   return (
     <section id="timeline" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Launch History & Schedule
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-400 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Timeline of completed and upcoming rocket launches
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Previous Launches Column */}
           <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
