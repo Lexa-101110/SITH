@@ -50,7 +50,7 @@ const RocketComparison = () => {
       name: "Nova Guided Rocket",
       thrust: "200N",
       weight: "1.5kg",
-      stability: "Extremly high",
+      stability: "Extremely high",
       fuel: "KNO₃ + (Sorbitol + fructose)",
       electronics: "Accelerometer + gyroscope + four canards + onboard camera",
       recovery: "Dual parachute",
@@ -126,9 +126,9 @@ const RocketComparison = () => {
                   <td className="px-6 py-4 text-blue-400 max-w-[150px] break-words">{rocket.thrust}</td>
                   <td className="px-6 py-4 text-gray-300 max-w-[150px] break-words">{rocket.weight}</td>
                   <td className="px-6 py-4">
-                    <span className={`px-2 py-1 rounded-full text-xs ${
+                    <span className={`inline-block px-2 py-1 rounded-full text-xs whitespace-normal min-w-[80px] text-center ${
                       rocket.stability === 'Extreme' ? 'bg-green-500/20 text-green-400' :
-                      rocket.stability === 'Very High' ? 'bg-blue-500/20 text-blue-400' :
+                      rocket.stability === 'Very high' ? 'bg-blue-500/20 text-blue-400' :
                       'bg-yellow-500/20 text-yellow-400'
                     }`}>
                       {rocket.stability}
