@@ -79,21 +79,23 @@ const RocketEngineComparison = () => {
           {engines.map((engine, index) => (
             <div 
               key={index}
-              className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-orange-500/50 transition-all duration-300"
+              className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-orange-500/50 transition-all duration-300 flex flex-col h-full"
             >
-              <div className="mb-4">
+              <div>
                 <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${engine.color} text-white mb-2`}>
                   {engine.type}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{engine.name}</h3>
-                <p className="text-gray-400 text-sm mb-4">{engine.description}</p>
+                <p className="text-gray-400 text-sm min-h-[3rem] mb-4">{engine.description}</p>
               </div>
 
-              <div className="space-y-3">
-                {renderSpec("Thrust", engine.specs.thrust, <Flame className="h-4 w-4" />)}
-                {renderSpec("Burn Time", engine.specs.burnTime, <Clock className="h-4 w-4" />)}
-                {renderSpec("Weight", engine.specs.weight, <Scale className="h-4 w-4" />)}
-                {renderSpec("Efficiency", engine.specs.efficiency, <Gauge className="h-4 w-4" />)}
+              <div className="flex-1 flex flex-col justify-between">
+                <div className="space-y-3">
+                  {renderSpec("Thrust", engine.specs.thrust, <Flame className="h-4 w-4" />)}
+                  {renderSpec("Burn Time", engine.specs.burnTime, <Clock className="h-4 w-4" />)}
+                  {renderSpec("Weight", engine.specs.weight, <Scale className="h-4 w-4" />)}
+                  {renderSpec("Efficiency", engine.specs.efficiency, <Gauge className="h-4 w-4" />)}
+                </div>
                 
                 <div className="pt-4 mt-4 border-t border-gray-700">
                   <div className="flex justify-between items-center mb-4">
