@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -15,7 +14,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "None",
       recovery: "None",
-      status: "Lunched"
+      status: "Launched"
     },
     {
       name: "Nova 2",
@@ -25,7 +24,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "None",
       recovery: "None",
-      status: "Lunched"
+      status: "Launched"
     },
     {
       name: "Nova 3",
@@ -35,7 +34,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "Accelerometer",
       recovery: "Single parachute",
-      status: "Lunched"
+      status: "Launched"
     },
     {
       name: "Nova 4",
@@ -45,7 +44,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "Accelerometer + onboard camera",
       recovery: "Single parachute",
-      status: "Lunched"
+      status: "Launched"
     },
     {
       name: "Nova Guided Rocket",
@@ -123,9 +122,9 @@ const RocketComparison = () => {
             <tbody>
               {rockets.map((rocket, index) => (
                 <tr key={index} className="border-b border-gray-800 hover:bg-gray-800/30 transition-colors">
-                  <td className="px-6 py-4 text-white font-semibold">{rocket.name}</td>
-                  <td className="px-6 py-4 text-blue-400">{rocket.thrust}</td>
-                  <td className="px-6 py-4 text-gray-300">{rocket.weight}</td>
+                  <td className="px-6 py-4 text-white font-semibold max-w-[200px] break-words">{rocket.name}</td>
+                  <td className="px-6 py-4 text-blue-400 max-w-[150px] break-words">{rocket.thrust}</td>
+                  <td className="px-6 py-4 text-gray-300 max-w-[150px] break-words">{rocket.weight}</td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 rounded-full text-xs ${
                       rocket.stability === 'Extreme' ? 'bg-green-500/20 text-green-400' :
@@ -135,11 +134,11 @@ const RocketComparison = () => {
                       {rocket.stability}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-gray-300">{rocket.fuel}</td>
-                  <td className="px-6 py-4 text-gray-300">{rocket.electronics}</td>
-                  <td className="px-6 py-4 text-gray-300">{rocket.recovery}</td>
+                  <td className="px-6 py-4 text-gray-300 max-w-[200px] break-words">{rocket.fuel}</td>
+                  <td className="px-6 py-4 text-gray-300 max-w-[250px] break-words">{rocket.electronics}</td>
+                  <td className="px-6 py-4 text-gray-300 max-w-[150px] break-words">{rocket.recovery}</td>
                   <td className="px-6 py-4">
-                    <span className={`px-2 py-1 rounded-full text-xs ${
+                    <span className={`px-2 py-1 rounded-full text-xs whitespace-nowrap ${
                       rocket.status === 'Tested' ? 'bg-green-500/20 text-green-400' :
                       rocket.status === 'In Development' ? 'bg-orange-500/20 text-orange-400' :
                       'bg-purple-500/20 text-purple-400'
