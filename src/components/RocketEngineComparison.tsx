@@ -6,47 +6,47 @@ import { Link } from 'react-router-dom';
 const RocketEngineComparison = () => {
   const engines = [
     {
-      name: "Nova-K1",
+      name: "N-1",
       type: "Solid Fuel",
       specs: {
-        thrust: "120N",
-        burnTime: "3.5s",
+        thrust: "90N",
+        burnTime: "1s",
         propellant: "KNO₃/Sorbitol",
-        weight: "250g",
-        efficiency: "92%",
+        weight: "90g",
+        efficiency: "70s",
         status: "Flight Tested"
       },
-      description: "Entry-level solid rocket motor optimized for consistent thrust curve and reliability.",
+      description: "One of the frist rocket engine ever made.",
       color: "from-orange-500 to-red-600",
       galleryLink: "/gallery?filter=Engines&engine=Nova-K1"
     },
     {
-      name: "Nova-K2",
+      name: "N-2",
       type: "Solid Fuel",
       specs: {
-        thrust: "250N",
-        burnTime: "4.2s",
-        propellant: "KNO₃/Dextrose",
-        weight: "420g",
-        efficiency: "94%",
-        status: "Testing Phase"
+        thrust: "120N",
+        burnTime: "1.5s",
+        propellant: "KNO₃/Sorbitol",
+        weight: "120g",
+        efficiency: "75s",
+        status: "Flight Tested"
       },
-      description: "Mid-power motor with enhanced thrust for higher altitude missions.",
+      description: "Designed for Nova 3 this engine is not very reliable.",
       color: "from-blue-500 to-purple-600",
       galleryLink: "/gallery?filter=Engines&engine=Nova-K2"
     },
     {
-      name: "Nova-X1",
-      type: "Hybrid",
+      name: "N-3",
+      type: "Solid Fuel",
       specs: {
-        thrust: "350N",
-        burnTime: "6.0s",
-        propellant: "N₂O/HTPB",
-        weight: "580g",
-        efficiency: "96%",
-        status: "Development"
+        thrust: "170N",
+        burnTime: "1.7s",
+        propellant: "KNO₃/Sorbitol",
+        weight: "280g",
+        efficiency: "101s",
+        status: "Not flight proven"
       },
-      description: "Experimental hybrid motor design with throttling capability.",
+      description: "Most powerful engine, designed for Nova Guided Rocket.",
       color: "from-emerald-500 to-teal-600",
       galleryLink: "/gallery?filter=Engines&engine=Nova-X1"
     }
