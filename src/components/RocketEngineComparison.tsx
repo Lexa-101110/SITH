@@ -16,7 +16,7 @@ const RocketEngineComparison = () => {
         efficiency: "70s",
         status: "Flight Tested"
       },
-      description: "One of the frist rocket engine ever made.",
+      description: "One of the first rocket engine ever made.",
       color: "from-orange-500 to-red-600",
       galleryLink: "/gallery?filter=Engines&engine=Nova-K1"
     },
