@@ -44,7 +44,7 @@ const Gallery = () => {
       type: 'video',
       title: 'Nova 4.1 Launch',
       category: 'Launches',
-      thumbnail: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc',
+      thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/qd.jpg',
       description: 'Launch of Nova 4.1, reaching 550m',
       detailedDescription: 'The launch of nova 4.1 was done after nova 4 crashed beacause of a fatal flaw on the parachute, the nova 4 series was built to host a camera.',
       youtubeId: 'pEDT3YU3n5Y'
