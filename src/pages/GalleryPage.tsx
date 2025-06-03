@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsxImportSource react */
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Header from '../components/Header';
@@ -6,6 +7,10 @@ import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 
 const GalleryPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 transition-colors duration-300">
       <div className="relative">

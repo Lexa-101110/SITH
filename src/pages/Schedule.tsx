@@ -1,5 +1,5 @@
 /** @jsxImportSource react */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Header from '../components/Header';
@@ -7,6 +7,10 @@ import RocketTimeline from '../components/RocketTimeline';
 import Footer from '../components/Footer';
 
 const Schedule = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 transition-colors duration-300">
       <div className="relative">
