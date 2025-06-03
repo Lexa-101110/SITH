@@ -1,8 +1,14 @@
-
 import React from 'react';
 import { ArrowDown, Rocket } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToNavigation = () => {
+    const navigationSection = document.querySelector('.navigation-buttons');
+    if (navigationSection) {
+      navigationSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center px-4">
       <div className="max-w-4xl mx-auto text-center">
@@ -19,9 +25,13 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="animate-bounce">
-          <ArrowDown className="h-8 w-8 text-gray-400 mx-auto" />
-        </div>
+        <button 
+          onClick={scrollToNavigation}
+          className="animate-bounce cursor-pointer hover:text-purple-400 transition-colors"
+          aria-label="Scroll to navigation"
+        >
+          <ArrowDown className="h-8 w-8 text-gray-400" />
+        </button>
       </div>
     </section>
   );

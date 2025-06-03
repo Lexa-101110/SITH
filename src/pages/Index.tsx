@@ -31,7 +31,7 @@ const Index = () => {
           <Hero />
           
           {/* Navigation Buttons Section */}
-          <section className="py-20 px-4">
+          <section className="navigation-buttons py-20 px-4">
             <div className="max-w-6xl mx-auto text-center space-y-16">
               {/* Schedule Button */}
               <div>
