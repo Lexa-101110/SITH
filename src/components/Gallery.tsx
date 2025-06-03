@@ -25,36 +25,29 @@ const Gallery = () => {
     {
       type: 'video',
       title: 'Static test fire of NGM Engine',
-      category: 'Launches',
+      category: 'Testing',
       thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
       description: 'Static test fire to prove engine pressure resistance',
-      detailedDescription: 'Static test fire to prove engine pressure resistance',
+      detailedDescription: 'Static test fire to prove engine pressure resistance, this test was done after a test of this same engine exploded due to a overpressure (4Mpa). The throat diameter was reduced to counter this problem and it worked',
       youtubeId: '-N4TVruPZM4'
     },
     {
-      type: 'image',
-      title: 'Engine Assembly',
-      category: 'Manufacturing',
-      thumbnail: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b',
-      description: '3D printed PETG engine components',
-      detailedDescription: 'Our custom-designed rocket engine components are 3D printed using high-temperature PETG material. Each component undergoes rigorous testing for structural integrity and thermal resistance. The modular design allows for easy maintenance and upgrades.'
+      type: 'video',
+      title: 'Nova 3 lLaunch',
+      category: 'Launches',
+      thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-05-18-204228.png',
+      description: 'Lunch of nova 3, reaching 400m',
+      detailedDescription: 'Lunch of nova 3 was quite impresive beacause it is one of the largest rocket i made, about 1.5m. It was a good lunch despite the rocket crashing beacause of a bad parachute deployement system, it failed to deploy proprely beacause it is the frist time it has been putted on a rocket.'
+      youtubeId: 'ZBxcJGRMyfo'
     },
     {
       type: 'video',
-      title: 'Static Fire Test',
-      category: 'Testing',
+      title: 'Nova 4.1 Launch',
+      category: 'Launches',
       thumbnail: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc',
-      description: 'Ground testing of new fuel mixture',
-      detailedDescription: 'Static fire tests are crucial for validating engine performance before flight. This test series evaluated our new propellant mixture, measuring thrust curves, combustion efficiency, and thermal characteristics.',
-      youtubeId: 'dQw4w9WgXcQ'
-    },
-    {
-      type: 'image',
-      title: 'Flight Computer PCB',
-      category: 'Electronics',
-      thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
-      description: 'Custom Arduino-based flight computer',
-      detailedDescription: 'Our flight computer features a custom PCB design with multiple sensors including accelerometers, gyroscopes, and barometric pressure sensors. The Arduino-based system provides real-time telemetry and autonomous flight control with built-in safety protocols.'
+      description: 'Launch of Nova 4.1, reaching 550m',
+      detailedDescription: 'The launch of nova 4.1 was done after nova 4 crashed beacause of a fatal flaw on the parachute, the nova 4 series was built to host a camera.',
+      youtubeId: 'pEDT3YU3n5Y'
     }
   ]);
 
