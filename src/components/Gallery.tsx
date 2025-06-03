@@ -33,7 +33,7 @@ const Gallery = () => {
     },
     {
       type: 'video',
-      title: 'Nova 3 lLaunch',
+      title: 'Nova 3 Launch',
       category: 'Launches',
       thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-05-18-204228.png',
       description: 'Lunch of nova 3, reaching 400m',
