@@ -15,7 +15,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "None",
       recovery: "None",
-      status: "Lunched, destroyed on impact"
+      status: "Lunched"
     },
     {
       name: "Nova 2",
@@ -25,7 +25,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "None",
       recovery: "None",
-      status: "Lunched, severely damaged on impact"
+      status: "Lunched"
     },
     {
       name: "Nova 3",
@@ -35,7 +35,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "Accelerometer",
       recovery: "Single parachute",
-      status: "Lunched, parachute detached rocket destroyed on impact"
+      status: "Lunched"
     },
     {
       name: "Nova 4",
@@ -45,7 +45,7 @@ const RocketComparison = () => {
       fuel: "KNO₃ + Sorbitol",
       electronics: "Accelerometer + onboard camera",
       recovery: "Single parachute",
-      status: "Lunched and recovered safely"
+      status: "Lunched"
     },
     {
       name: "Nova Guided Rocket",
