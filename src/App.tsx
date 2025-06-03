@@ -7,6 +7,8 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
 import GalleryPage from "./pages/GalleryPage";
 import NotFound from "./pages/NotFound";
+import Schedule from './pages/Schedule';
+import NovaProject from './pages/NovaProject';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/nova-project" element={<NovaProject />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

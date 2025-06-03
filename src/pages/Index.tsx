@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Calendar, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -7,7 +7,6 @@ import About from '../components/About';
 import TechnicalSpecs from '../components/TechnicalSpecs';
 import RocketComparison from '../components/RocketComparison';
 import RocketEngineComparison from '../components/RocketEngineComparison';
-import RocketTimeline from '../components/RocketTimeline';
 import ProjectsInProgress from '../components/ProjectsInProgress';
 import TechnicalDocs from '../components/TechnicalDocs';
 import Contact from '../components/Contact';
@@ -31,22 +30,44 @@ const Index = () => {
           <Header darkMode={darkMode} setDarkMode={setDarkMode} />
           <Hero />
           
-          {/* Gallery Navigation Section - Moved before About */}
+          {/* Navigation Buttons Section */}
           <section className="py-20 px-4">
-            <div className="max-w-6xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Multimedia Gallery
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-teal-400 mx-auto mb-8"></div>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                Explore our complete collection of videos, photos, and documentation from design to launch
-              </p>
-              <Link 
-                to="/gallery"
-                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-teal-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105"
-              >
-                View Gallery
-              </Link>
+            <div className="max-w-6xl mx-auto text-center space-y-16">
+              {/* Schedule Button */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Launch Schedule
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-8"></div>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                  View our upcoming launches, tests, and development timeline
+                </p>
+                <Link 
+                  to="/schedule"
+                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Calendar className="w-5 h-5 mr-2" />
+                  View Schedule
+                </Link>
+              </div>
+
+              {/* Gallery Button */}
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Multimedia Gallery
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-teal-400 mx-auto mb-8"></div>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                  Explore our complete collection of videos, photos, and documentation from design to launch
+                </p>
+                <Link 
+                  to="/gallery"
+                  className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-teal-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105"
+                >
+                  <Camera className="w-5 h-5 mr-2" />
+                  View Gallery
+                </Link>
+              </div>
             </div>
           </section>
 
@@ -54,7 +75,6 @@ const Index = () => {
           <TechnicalSpecs />
           <RocketComparison />
           <RocketEngineComparison />
-          <RocketTimeline />
           <ProjectsInProgress />
           <TechnicalDocs />
           <Contact />
