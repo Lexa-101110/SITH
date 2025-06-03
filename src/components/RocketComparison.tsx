@@ -8,34 +8,54 @@ const RocketComparison = () => {
 
   const rockets = [
     {
-      name: "Phoenix Alpha",
-      thrust: "150N",
-      weight: "2.5kg",
+      name: "NOVA 1",
+      thrust: "90N",
+      weight: "0.4Kg",
+      stability: "Very low",
+      fuel: "KNO₃ + Sorbitol",
+      electronics: "None",
+      recovery: "None",
+      status: "Lunched, destroyed on impact"
+    },
+    {
+      name: "Nova 2",
+      thrust: "130N",
+      weight: "0.6Kg",
       stability: "High",
       fuel: "KNO₃ + Sorbitol",
-      electronics: "Basic accelerometer",
+      electronics: "None",
+      recovery: "None",
+      status: "Lunched, severely damaged on impact"
+    },
+    {
+      name: "Nova 3",
+      thrust: "110N",
+      weight: "1.3kg",
+      stability: "High",
+      fuel: "KNO₃ + Sorbitol",
+      electronics: "Accelerometer",
       recovery: "Single parachute",
-      status: "Tested"
+      status: "Lunched, parachute detached rocket destroyed on impact"
     },
     {
-      name: "Falcon Beta",
+      name: "Nova 4",
+      thrust: "120N",
+      weight: "1.1kg",
+      stability: "Very high",
+      fuel: "KNO₃ + Sorbitol",
+      electronics: "Accelerometer + onboard camera",
+      recovery: "Single parachute",
+      status: "Lunched and recovered safely"
+    },
+    {
+      name: "Nova Guided Rocket",
       thrust: "200N",
-      weight: "3.2kg",
-      stability: "Very High",
-      fuel: "KNO₃ + Fructose",
-      electronics: "Accelerometer + Gyro",
+      weight: "1.5kg",
+      stability: "Extremly high",
+      fuel: "KNO₃ + (Sorbitol + fructose)",
+      electronics: "Accelerometer + gyroscope + four canards + onboard camera",
       recovery: "Dual parachute",
-      status: "In Development"
-    },
-    {
-      name: "Eagle Gamma",
-      thrust: "300N",
-      weight: "4.1kg",
-      stability: "Extreme",
-      fuel: "Custom blend",
-      electronics: "Full flight computer",
-      recovery: "Guided recovery",
-      status: "Design Phase"
+      status: "In developement"
     }
   ];
 
