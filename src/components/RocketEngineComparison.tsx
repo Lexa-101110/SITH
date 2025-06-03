@@ -36,7 +36,7 @@ const RocketEngineComparison = () => {
       galleryLink: "/gallery?filter=Engines&engine=Nova-K2"
     },
     {
-      name: "N-3",
+      name: "NGM Engine",
       type: "Solid Fuel",
       specs: {
         thrust: "170N",
@@ -46,7 +46,7 @@ const RocketEngineComparison = () => {
         efficiency: "101s",
         status: "Not flight proven"
       },
-      description: "Most powerful engine, designed for Nova Guided Rocket.",
+      description: "Most powerful engine, designed for Nova Guided Rocketl.",
       color: "from-emerald-500 to-teal-600",
       galleryLink: "/gallery?filter=Engines&engine=Nova-X1"
     }
