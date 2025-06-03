@@ -37,7 +37,7 @@ const Gallery = () => {
       category: 'Launches',
       thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-05-18-204228.png',
       description: 'Lunch of nova 3, reaching 400m',
-      detailedDescription: 'Lunch of nova 3 was quite impresive beacause it is one of the largest rocket i made, about 1.5m. It was a good lunch despite the rocket crashing beacause of a bad parachute deployement system, it failed to deploy proprely beacause it is the frist time it has been putted on a rocket.'
+      detailedDescription: 'Lunch of nova 3 was quite impresive beacause it is one of the largest rocket i made, about 1.5m. It was a good lunch despite the rocket crashing beacause of a bad parachute deployement system, it failed to deploy proprely beacause it is the frist time it has been putted on a rocket.',
       youtubeId: 'ZBxcJGRMyfo'
     },
     {
