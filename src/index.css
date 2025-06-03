@@ -183,7 +183,7 @@ html {
 /* Flying rocket animation */
 @keyframes fly-rocket {
   0% {
-    transform: translateX(-100vw) translateY(10vh) rotate(-45deg);
+    transform: translateX(-100vw) translateY(10vh) rotate(-45deg) scale(1);
     opacity: 0;
   }
   10% {
@@ -193,39 +193,76 @@ html {
     opacity: 1;
   }
   100% {
-    transform: translateX(100vw) translateY(-20vh) rotate(-45deg);
+    transform: translateX(100vw) translateY(-20vh) rotate(-45deg) scale(1);
     opacity: 0;
   }
 }
 
 .flying-rocket {
   position: fixed;
-  bottom: 10%; /* Adjust starting vertical position */
+  bottom: 10%;
   left: 0;
-  width: 50px; /* Adjust size as needed */
-  height: 20px; /* Adjust size as needed */
+  width: 50px;
+  height: 20px;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><polygon points="0,25 20,0 100,25 20,50" style="fill:%23ffcc00;"/><polygon points="0,25 15,20 15,30" style="fill:%23ff6600;"/><circle cx="70" cy="25" r="10" fill="%23ffffff"/><line x1="10" y1="25" x2="-10" y2="25" stroke="%23ff6600" stroke-width="5" transform="rotate(30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line><line x1="10" y1="25" x2="-10" y2="25" stroke="%23ff6600" stroke-width="5" transform="rotate(-30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line></svg>');
   background-repeat: no-repeat;
   background-size: contain;
   animation: fly-rocket 15s linear infinite;
-  animation-delay: 2s; /* Optional delay before animation starts */
-  z-index: 1000; /* Ensure it's above other content */
-  pointer-events: none; /* Rocket should not be interactive */
+  animation-delay: 2s;
+  z-index: 1000;
+  pointer-events: none;
 }
 
-/* Add a second rocket with a different delay and vertical position */
+/* Responsive adjustments for rockets */
+@media (max-width: 768px) {
+  .flying-rocket {
+    width: 30px;
+    height: 12px;
+  }
+  
+  @keyframes fly-rocket {
+    0% {
+      transform: translateX(-100vw) translateY(5vh) rotate(-45deg) scale(0.8);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100vw) translateY(-10vh) rotate(-45deg) scale(0.8);
+      opacity: 0;
+    }
+  }
+}
+
 .flying-rocket.variant-1 {
-  animation-delay: 7s; /* Different delay */
-  bottom: 20%; /* Different vertical position */
-  transform: scale(0.8); /* Slightly smaller */
-   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><polygon points="0,25 20,0 100,25 20,50" style="fill:%23cccccc;"/><polygon points="0,25 15,20 15,30" style="fill:%23999999;"/><circle cx="70" cy="25" r="10" fill="%23ffffff"/><line x1="10" y1="25" x2="-10" y2="25" stroke="%23999999" stroke-width="5" transform="rotate(30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line><line x1="10" y1="25" x2="-10" y2="25" stroke="%23999999" stroke-width="5" transform="rotate(-30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line></svg>');
+  animation-delay: 7s;
+  bottom: 20%;
+  transform: scale(0.8);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><polygon points="0,25 20,0 100,25 20,50" style="fill:%23cccccc;"/><polygon points="0,25 15,20 15,30" style="fill:%23999999;"/><circle cx="70" cy="25" r="10" fill="%23ffffff"/><line x1="10" y1="25" x2="-10" y2="25" stroke="%23999999" stroke-width="5" transform="rotate(30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line><line x1="10" y1="25" x2="-10" y2="25" stroke="%23999999" stroke-width="5" transform="rotate(-30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line></svg>');
 }
 
-/* Add a third rocket, faster and smaller */
+@media (max-width: 768px) {
+  .flying-rocket.variant-1 {
+    transform: scale(0.6);
+    bottom: 25%;
+  }
+}
+
 .flying-rocket.variant-2 {
-  animation-duration: 10s; /* Faster animation */
-  animation-delay: 12s; /* Different delay */
-  bottom: 15%; /* Different vertical position */
-  transform: scale(0.6) rotate(10deg); /* Smaller and slightly different angle */
-   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><polygon points="0,25 20,0 100,25 20,50" style="fill:%2300ccff;"/><polygon points="0,25 15,20 15,30" style="fill:%230066ff;"/><circle cx="70" cy="25" r="10" fill="%23ffffff"/><line x1="10" y1="25" x2="-10" y2="25" stroke="%230066ff" stroke-width="5" transform="rotate(30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line><line x1="10" y1="25" x2="-10" y2="25" stroke="%230066ff" stroke-width="5" transform="rotate(-30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line></svg>');
+  animation-duration: 10s;
+  animation-delay: 12s;
+  bottom: 15%;
+  transform: scale(0.6) rotate(10deg);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><polygon points="0,25 20,0 100,25 20,50" style="fill:%2300ccff;"/><polygon points="0,25 15,20 15,30" style="fill:%230066ff;"/><circle cx="70" cy="25" r="10" fill="%23ffffff"/><line x1="10" y1="25" x2="-10" y2="25" stroke="%230066ff" stroke-width="5" transform="rotate(30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line><line x1="10" y1="25" x2="-10" y2="25" stroke="%230066ff" stroke-width="5" transform="rotate(-30 0 25)" ><animate attributeName="x2" values="-10;-20;-10" dur="0.5s" repeatCount="indefinite" /></line></svg>');
+}
+
+@media (max-width: 768px) {
+  .flying-rocket.variant-2 {
+    transform: scale(0.4) rotate(10deg);
+    bottom: 30%;
+  }
 }
