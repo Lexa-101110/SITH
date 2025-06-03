@@ -11,42 +11,43 @@ const RocketTimeline = () => {
   const launches: LaunchEvent[] = [
     // Previous Launches
     {
-      date: '2023-06-15',
+      date: '2023-12-15',
       rocket: 'NOVA 1',
-      description: 'First successful launch of NOVA 1 rocket, reaching an altitude of 100m.',
+      description: 'First successful launch of NOVA rocket, reaching an altitude of about 30m, the engine nossle has experienced derofmation during the engine assembly phase causing uneven thrust and the rocket started to spin.',
       status: 'completed'
     },
     {
-      date: '2023-08-10',
+      date: '2024-02-10',
       rocket: 'NOVA 2',
       description: 'NOVA 2 launch with improved stability system, successful flight.',
       status: 'completed'
     },
     {
-      date: '2023-10-01',
+      date: '2024-05-10',
       rocket: 'NOVA 3',
-      description: 'First launch with onboard electronics and successful parachute recovery.',
+      description: 'First launch with onboard electronics and unsuccessful parachute recovery, the parachute detached from the rocket causing it to crash at a very high speed and making the recovery unsuccsesful.',
       status: 'completed'
     },
     {
-      date: '2023-12-01',
+      date: '2024-05-23',
       rocket: 'NOVA 4',
-      description: 'Successful launch with full camera footage and telemetry data collection.',
+      description: 'Unsuccessful launch, the homemade parachute experienced tangeling and the rocket crashed at high speed causing lost of camera footage.',
+      status: 'completed'
+    },
+    {
+      date: '2024-05-23',
+      rocket: 'NOVA 4.1',
+      description: 'Successful launch with full camera footage and electronic salvation.',
       status: 'completed'
     },
     // Upcoming Launches
     {
-      date: '2024-03-15',
+      date: 'Not Earlier Than 2025-06-20',
       rocket: 'Nova Guided Rocket',
       description: 'First test flight of guided rocket system with active canard control.',
       status: 'upcoming'
-    },
-    {
-      date: '2024-05-01',
-      rocket: 'Nova Guided Rocket',
-      description: 'Second flight with enhanced guidance algorithms and increased target altitude.',
-      status: 'upcoming'
     }
+    
   ];
 
   return (
