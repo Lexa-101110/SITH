@@ -6,6 +6,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import TechnicalSpecs from '../components/TechnicalSpecs';
 import RocketComparison from '../components/RocketComparison';
+import RocketEngineComparison from '../components/RocketEngineComparison';
 import RocketTimeline from '../components/RocketTimeline';
 import ProjectsInProgress from '../components/ProjectsInProgress';
 import TechnicalDocs from '../components/TechnicalDocs';
@@ -52,6 +53,7 @@ const Index = () => {
           <About />
           <TechnicalSpecs />
           <RocketComparison />
+          <RocketEngineComparison />
           <RocketTimeline />
           <ProjectsInProgress />
           <TechnicalDocs />
