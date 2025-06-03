@@ -168,32 +168,28 @@ const TechnicalDocs = () => {
 
               <div className="space-y-4">
                 {documents[activeCategory].map((doc, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-orange-500/50 transition-all duration-300">
+                  <a
+                    key={index}
+                    href={doc.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-orange-500/50 transition-all duration-300 group cursor-pointer"
+                  >
                     <div className="flex items-center space-x-4">
                       <div className="text-orange-400">
                         {getIcon(doc.type)}
                       </div>
                       <div>
                         <h4 className="text-white font-medium">{doc.name}</h4>
-                        <div className="flex items-center space-x-4 mt-1">
-                          <span className={`text-xs px-2 py-1 rounded ${getTypeColor(doc.type)}`}>
-                            {doc.type}
-                          </span>
-                          <span className="text-gray-400 text-sm">{doc.size}</span>
-                          <span className="text-gray-400 text-sm">{doc.downloads} downloads</span>
-                        </div>
+                        <span className={`text-xs px-2 py-1 rounded mt-1 inline-block ${getTypeColor(doc.type)}`}>
+                          {doc.type}
+                        </span>
                       </div>
                     </div>
-                    <a
-                      href={doc.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors"
-                    >
-                      <Download className="h-4 w-4" />
-                      <span>Download</span>
-                    </a>
-                  </div>
+                    <div className="text-gray-400 group-hover:text-orange-400 transition-colors">
+                      <Download className="h-5 w-5" />
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>
