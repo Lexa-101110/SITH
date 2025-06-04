@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
-import { Play, Camera, Filter, ChevronLeft, ChevronRight, X } from 'lucide-react';
+/** @jsxImportSource react */
+import type { FC } from 'react';
+import { useState } from 'react';
+import { Play, Camera, Filter, ChevronLeft, ChevronRight, X, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
+interface MediaImage {
+  url: string;
+  caption?: string;
+}
 
 interface MediaItem {
   type: 'video' | 'image';
   title: string;
   category: string;
   thumbnail: string;
+  images?: MediaImage[];  // Array of additional images
   description: string;
   detailedDescription?: string;
   youtubeId?: string;
 }
 
-const Gallery = () => {
+const Gallery: FC = () => {
   const [filter, setFilter] = useState('All');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
   
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([
     {
@@ -29,7 +39,17 @@ const Gallery = () => {
       thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
       description: 'Static test fire to prove engine pressure resistance',
       detailedDescription: 'Static test fire to prove engine pressure resistance, this test was done after a test of this same engine exploded due to a overpressure (4Mpa). The throat diameter was reduced to counter this problem and it worked',
-      youtubeId: '-N4TVruPZM4'
+      youtubeId: '-N4TVruPZM4',
+      images: [
+        {
+          url: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
+          caption: 'Engine setup before test'
+        },
+        {
+          url: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233812.jpeg?raw=true',
+          caption: 'Engine during test fire'
+        }
+      ]
     },
     {
       type: 'video',
@@ -67,9 +87,9 @@ const Gallery = () => {
     setSelectedVideo(null);
   };
 
-  const openLightbox = (imageIndex: number) => {
-    const globalIndex = mediaItems.findIndex(item => item.type === 'image' && imageItems[imageIndex] === item);
-    setCurrentImageIndex(globalIndex);
+  const openLightbox = (itemIndex: number, imageIndex: number = 0) => {
+    setCurrentItemIndex(itemIndex);
+    setCurrentImageIndex(imageIndex);
     setLightboxOpen(true);
   };
 
@@ -95,9 +115,10 @@ const Gallery = () => {
     }
   };
 
-  const currentImageItem = lightboxOpen ? mediaItems[currentImageIndex] : null;
-  const isFirstImage = currentImageItem ? imageItems.findIndex(img => img === currentImageItem) === 0 : false;
-  const isLastImage = currentImageItem ? imageItems.findIndex(img => img === currentImageItem) === imageItems.length - 1 : false;
+  const currentItem = lightboxOpen ? mediaItems[currentItemIndex] : null;
+  const currentImages = currentItem?.images || [{ url: currentItem?.thumbnail || '' }];
+  const isFirstImage = currentImageIndex === 0;
+  const isLastImage = currentImageIndex === (currentImages.length - 1);
 
   return (
     <section id="gallery" className="py-20 px-4">
@@ -132,88 +153,112 @@ const Gallery = () => {
 
         {/* Gallery Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => {
-            const globalIndex = mediaItems.findIndex(mediaItem => mediaItem === item);
-            return (
-              <div key={globalIndex} className="group relative bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700 overflow-hidden hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                <div className="relative h-64 overflow-hidden">
+          {filteredItems.map((item, index) => (
+            <div key={index} className="group relative bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700 overflow-hidden hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="relative h-64 overflow-hidden">
+                {item.images && item.images.length > 0 ? (
+                  <Carousel className="w-full h-full">
+                    <CarouselContent>
+                      {[item.thumbnail, ...item.images.map(img => img.url)].map((imageUrl, imgIndex) => (
+                        <CarouselItem key={imgIndex}>
+                          <img 
+                            src={imageUrl}
+                            alt={`${item.title} - Image ${imgIndex + 1}`}
+                            className="w-full h-64 object-cover cursor-pointer"
+                            onClick={() => {
+                              if (item.type === 'image' || imgIndex > 0) {
+                                openLightbox(index, imgIndex);
+                              }
+                            }}
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    {item.images.length > 1 && (
+                      <>
+                        <CarouselPrevious className="left-2" />
+                        <CarouselNext className="right-2" />
+                      </>
+                    )}
+                  </Carousel>
+                ) : (
                   <img 
-                    src={item.thumbnail} 
+                    src={item.thumbnail}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 cursor-pointer"
                     onClick={() => {
                       if (item.type === 'image') {
-                        const imageIndex = imageItems.findIndex(img => img === item);
-                        openLightbox(imageIndex);
+                        openLightbox(index);
                       }
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
-                  
-                  {/* Play button for videos */}
-                  {item.type === 'video' && item.youtubeId && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <button 
-                        onClick={() => openVideo(item.youtubeId!)}
-                        className="bg-purple-600/80 backdrop-blur-sm rounded-full p-4 hover:bg-purple-600 transition-colors"
-                      >
-                        <Play className="h-8 w-8 text-white ml-1" />
-                      </button>
-                    </div>
-                  )}
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
 
-                  {/* Camera icon for images */}
-                  {item.type === 'image' && (
-                    <div className="absolute top-4 right-4">
-                      <Camera className="h-6 w-6 text-white/80" />
-                    </div>
-                  )}
-                </div>
-                
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-white font-semibold">{item.title}</h3>
-                    <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-400 rounded">
-                      {item.category}
-                    </span>
+                {/* Play button for videos */}
+                {item.type === 'video' && item.youtubeId && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button 
+                      onClick={() => openVideo(item.youtubeId!)}
+                      className="bg-purple-600/80 backdrop-blur-sm rounded-full p-4 hover:bg-purple-600 transition-colors"
+                    >
+                      <Play className="h-8 w-8 text-white ml-1" />
+                    </button>
                   </div>
-                  <p className="text-gray-400 text-sm mb-2">{item.description}</p>
-                  
-                  {item.detailedDescription && (
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" size="sm" className="text-purple-400 border-purple-400 hover:bg-purple-600 hover:text-white">
-                          Read More
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-gray-900 border-gray-700 text-white max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle className="text-purple-400">{item.title}</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <img 
-                            src={item.thumbnail} 
-                            alt={item.title}
-                            className="w-full h-64 object-cover rounded-lg"
-                          />
-                          <p className="text-gray-300 leading-relaxed">{item.detailedDescription}</p>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  )}
-                </div>
+                )}
+
+                {/* Image counter badge */}
+                {item.images && item.images.length > 0 && (
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs flex items-center">
+                    <ImageIcon className="h-3 w-3 mr-1" />
+                    {item.images.length + 1}
+                  </div>
+                )}
               </div>
-            );
-          })}
+              
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-white font-semibold">{item.title}</h3>
+                  <span className="text-xs px-2 py-1 bg-purple-600/20 text-purple-400 rounded">
+                    {item.category}
+                  </span>
+                </div>
+                <p className="text-gray-400 text-sm mb-2">{item.description}</p>
+                
+                {item.detailedDescription && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="sm" className="text-purple-400 border-purple-400 hover:bg-purple-600 hover:text-white">
+                        Read More
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-gray-900 border-gray-700 text-white max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle className="text-purple-400">{item.title}</DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-4">
+                        <img 
+                          src={item.thumbnail} 
+                          alt={item.title}
+                          className="w-full h-64 object-cover rounded-lg"
+                        />
+                        <p className="text-gray-300 leading-relaxed">{item.detailedDescription}</p>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Image Lightbox */}
-        {lightboxOpen && currentImageItem && (
+        {lightboxOpen && currentItem && (
           <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="relative max-w-4xl w-full h-full flex items-center justify-center">
               {/* Close button */}
               <button
-                onClick={closeLightbox}
+                onClick={() => setLightboxOpen(false)}
                 className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 text-xl font-bold bg-black/50 rounded-full p-2"
               >
                 <X className="h-6 w-6" />
@@ -222,7 +267,7 @@ const Gallery = () => {
               {/* Previous button */}
               {!isFirstImage && (
                 <button
-                  onClick={prevImage}
+                  onClick={() => setCurrentImageIndex(prev => prev - 1)}
                   className="absolute left-4 z-10 text-white hover:text-gray-300 bg-black/50 rounded-full p-2"
                 >
                   <ChevronLeft className="h-8 w-8" />
@@ -232,7 +277,7 @@ const Gallery = () => {
               {/* Next button */}
               {!isLastImage && (
                 <button
-                  onClick={nextImage}
+                  onClick={() => setCurrentImageIndex(prev => prev + 1)}
                   className="absolute right-4 z-10 text-white hover:text-gray-300 bg-black/50 rounded-full p-2"
                 >
                   <ChevronRight className="h-8 w-8" />
@@ -242,24 +287,26 @@ const Gallery = () => {
               {/* Image */}
               <div className="flex flex-col items-center max-h-full">
                 <img
-                  src={currentImageItem.thumbnail}
-                  alt={currentImageItem.title}
+                  src={currentImages[currentImageIndex].url}
+                  alt={`${currentItem.title} - Image ${currentImageIndex + 1}`}
                   className="max-w-full max-h-[70vh] object-contain rounded-lg"
                 />
                 
                 {/* Image info */}
                 <div className="mt-4 text-center max-w-2xl">
-                  <h3 className="text-white text-xl font-semibold mb-2">{currentImageItem.title}</h3>
-                  <p className="text-gray-300 text-sm mb-2">{currentImageItem.description}</p>
-                  {currentImageItem.detailedDescription && (
-                    <p className="text-gray-400 text-sm leading-relaxed">{currentImageItem.detailedDescription}</p>
+                  <h3 className="text-white text-xl font-semibold mb-2">{currentItem.title}</h3>
+                  <p className="text-gray-300 text-sm mb-2">
+                    {currentImages[currentImageIndex].caption || currentItem.description}
+                  </p>
+                  {currentImageIndex === 0 && currentItem.detailedDescription && (
+                    <p className="text-gray-400 text-sm leading-relaxed">{currentItem.detailedDescription}</p>
                   )}
                 </div>
               </div>
 
               {/* Image counter */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black/50 px-3 py-1 rounded-full text-sm">
-                {imageItems.findIndex(img => img === currentImageItem) + 1} / {imageItems.length}
+                {currentImageIndex + 1} / {currentImages.length}
               </div>
             </div>
           </div>
