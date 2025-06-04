@@ -39,17 +39,7 @@ const Gallery: FC = () => {
       thumbnail: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
       description: 'Static test fire to prove engine pressure resistance',
       detailedDescription: 'Static test fire to prove engine pressure resistance, this test was done after a test of this same engine exploded due to a overpressure (4Mpa). The throat diameter was reduced to counter this problem and it worked',
-      youtubeId: '-N4TVruPZM4',
-      images: [
-        {
-          url: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233811.jpeg?raw=true',
-          caption: 'Engine setup before test'
-        },
-        {
-          url: 'https://github.com/Lexa-101110/imaj/blob/main/signal-2025-06-01-233812.jpeg?raw=true',
-          caption: 'Engine during test fire'
-        }
-      ]
+      youtubeId: '-N4TVruPZM4'
     },
     {
       type: 'video',
@@ -68,6 +58,28 @@ const Gallery: FC = () => {
       description: 'Launch of Nova 4.1, reaching 550m',
       detailedDescription: 'The launch of nova 4.1 was done after nova 4 crashed beacause of a fatal flaw on the parachute, the nova 4 series was built to host a camera.',
       youtubeId: 'pEDT3YU3n5Y'
+    },
+    {
+      type: 'image',
+      title: 'New Post Title',
+      category: 'Manufacturing',
+      thumbnail: 'your-main-image-url-here',
+      description: 'Brief description of your post',
+      detailedDescription: 'A more detailed description of your post that will appear in the Read More dialog',
+      images: [
+        {
+          url: 'your-main-image-url-here',
+          caption: 'Caption for the first image'
+        },
+        {
+          url: 'your-second-image-url-here',
+          caption: 'Caption for the second image'
+        },
+        {
+          url: 'your-third-image-url-here',
+          caption: 'Caption for the third image'
+        }
+      ]
     }
   ]);
 
